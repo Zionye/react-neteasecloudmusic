@@ -36,6 +36,6 @@ export const themeSlice = createSlice({
 })
 
 // 将setDark和setColorPrimary方法抛出
-const { setDark, setColorPrimary } = themeSlice.actions
+export const { setDark, setColorPrimary } = themeSlice.actions
 
 export default themeSlice.reducer

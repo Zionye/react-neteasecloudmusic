@@ -1,9 +1,11 @@
 // 头部导航模块
 import { Card, Button, Menu } from "antd"
-import { MoonOutlined, ThemeOutlined } from '@/components/extraIcons'
+import { MoonOutlined, ThemeOutlined, SunOutlined } from '@/components/extraIcons'
 import { HomeOutlined, UserOutlined } from '@ant-design/icons'
-import './header.styl'
 import { useLocation, useNavigate } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux" // 引入Redux
+import { setDark } from '@/store/slices/theme' // 从主题换肤store分库引入setDark方法
+import './header.styl'
 
 const Header = (props) => {
   // 创建路由定位钩子
@@ -11,6 +13,7 @@ const Header = (props) => {
   console.log('location: ', location);
   // 创建路由钩子
   const navigate = useNavigate()
+
   // 定义导航栏
   const menuItems = [
     {
@@ -35,6 +38,11 @@ const Header = (props) => {
     }
   ]
 
+  // 获取redux派发钩子
+  const dispatch = useDispatch()
+  // 获取store中的主题配置
+  const theme = useSelector(state => state.theme)
+
   // 接收来自父组件的数据
   const {title, info} = props
   // 如果info存在，则执行info()
@@ -48,7 +56,14 @@ const Header = (props) => {
               <Menu mode="horizontal" selectedKeys={location.pathname} items={menuItems} />
             </div>
             <div className="opt-con">
-                <Button icon={<MoonOutlined />} shape="circle"></Button>
+              {
+                theme.dark ? (
+                  <Button icon={<MoonOutlined />} shape="circle" onClick={()=>dispatch(setDark(false))}></Button>
+                ) : (
+                  <Button icon={<SunOutlined />} shape="circle" onClick={()=>dispatch(setDark(true))}></Button>
+                )
+              }
+                
                 <Button icon={<ThemeOutlined />} shape="circle"></Button>
             </div>
         </div>

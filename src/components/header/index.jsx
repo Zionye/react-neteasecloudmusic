@@ -1,11 +1,15 @@
 // 头部导航模块
+import { useState } from "react"
 import { Card, Button, Menu } from "antd"
 import { MoonOutlined, ThemeOutlined, SunOutlined } from '@/components/extraIcons'
 import { HomeOutlined, UserOutlined } from '@ant-design/icons'
 import { useLocation, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux" // 引入Redux
 import { setDark } from '@/store/slices/theme' // 从主题换肤store分库引入setDark方法
+import { globalConfig } from "@/globalConfig"
+import ThemeModal from '@/components/themeModal'
 import './header.styl'
+
 
 const Header = (props) => {
   // 创建路由定位钩子
@@ -43,6 +47,9 @@ const Header = (props) => {
   // 获取store中的主题配置
   const theme = useSelector(state => state.theme)
 
+  // 是否显示主题色选择对话框
+  const [showThemeModal, setShowThemeModal] = useState(false)
+
   // 接收来自父组件的数据
   const {title, info} = props
   // 如果info存在，则执行info()
@@ -63,10 +70,20 @@ const Header = (props) => {
                   <Button icon={<SunOutlined />} shape="circle" onClick={()=>dispatch(setDark(true))}></Button>
                 )
               }
-                
-                <Button icon={<ThemeOutlined />} shape="circle"></Button>
+
+                {
+                  // 当globalConfig配置了主题色，并且数量大于0时，才显示主题色换肤按钮
+                  globalConfig.customColorPrimarys &&
+                    globalConfig.customColorPrimarys.length>0 && 
+                      <Button icon={<ThemeOutlined />} shape="circle" onClick={()=>{setShowThemeModal(true)}}></Button>
+                }
             </div>
         </div>
+        
+        {
+          // 显示主题色换肤对话框
+          showThemeModal && <ThemeModal onClose={()=>{setShowThemeModal(false)}} />
+        }
     </Card>
   )
 }

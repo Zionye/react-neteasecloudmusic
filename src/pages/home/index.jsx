@@ -3,6 +3,7 @@ import { Button, theme } from 'antd'
 import { goto } from '@/api'
 import './home.styl'
 
+// https://ant-design.antgroup.com/docs/react/customize-theme-cn#theme
 const { useToken } = theme
 
 const Home = () => {

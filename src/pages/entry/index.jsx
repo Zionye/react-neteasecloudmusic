@@ -17,6 +17,19 @@ const Entry = () => {
     // 亮色/暗色配置
     algorithm: globalTheme.dark ? darkAlgorithm : defaultAlgorithm,
   }
+  // 应用自定义主题色
+  if(globalTheme.colorPrimary){
+    /**
+     *  Design Token:
+     *    当前Antd文本色:       token.colorText
+     *    自定义组件的背景色换肤: token.colorBgContainer
+     *    边框色换肤:           token.colorBorder
+     *    当前Antd主题色:       token.colorPrimary
+     *  */
+    antdTheme.token = {
+      colorPrimary: globalTheme.colorPrimary,
+    }
+  }
 
   return (
     <ConfigProvider theme={antdTheme}>

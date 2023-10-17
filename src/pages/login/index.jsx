@@ -4,7 +4,7 @@ import './login.styl'
 
 const Login = () => {
   // 创建路由钩子
-  const navigate = useNavigate()
+  let navigate = useNavigate()
   return (
     <div className="P_login">
       <div className="ipt_con">

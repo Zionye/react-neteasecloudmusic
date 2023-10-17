@@ -4,7 +4,8 @@ import './account.styl'
 
 const Account = () => {
   // 创建路由钩子
-  const navigate = useNavigate()
+  let navigate = useNavigate()
+
   return (
     <div className="P-account">
         <h1>Account Page</h1>

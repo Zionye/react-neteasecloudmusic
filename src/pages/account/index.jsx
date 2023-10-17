@@ -9,7 +9,7 @@ const Account = () => {
 
   return (
     <div className="P-account">
-        <Header/>
+        <Header title={'account'} info={()=>{console.log('info:account')}}/>
 
         <h1>Account Page</h1>
         <div className="ipt-con">

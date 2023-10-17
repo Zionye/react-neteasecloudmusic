@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <div className="P-home">
-      <Header/>
+      <Header title={'home'} info={()=>{console.log('info:home')}}/>
 
       <h1>Home Page</h1>
       <div className="ipt-con">

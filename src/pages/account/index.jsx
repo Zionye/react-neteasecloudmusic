@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { Button } from 'antd'
 import './account.styl'
+import Header from '@/components/header'
 
 const Account = () => {
   // 创建路由钩子
@@ -8,6 +9,8 @@ const Account = () => {
 
   return (
     <div className="P-account">
+        <Header/>
+
         <h1>Account Page</h1>
         <div className="ipt-con">
             <Button type="primary" onClick={()=>{navigate('/login')}}>返回登录</Button>

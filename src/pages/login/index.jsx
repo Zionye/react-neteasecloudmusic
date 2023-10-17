@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { Button, Input } from 'antd'
 import './login.styl'
+import { MoonOutlined, SunOutlined, ThemeOutlined } from '../../components/extraIcons'
 
 const Login = () => {
   // 创建路由钩子
@@ -14,7 +15,7 @@ const Login = () => {
         <Input.Password placeholder="密码" />
       </div>
       <div className="ipt_con">
-        <Button type="primary" block={true} onClick={()=>{navigate('/home')}}>登录</Button>
+        <Button icon={<ThemeOutlined />}  type="primary" block={true} onClick={()=>{navigate('/home')}}>登录</Button>
       </div>
     </div>
   )

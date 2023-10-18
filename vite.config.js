@@ -4,6 +4,14 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    // build目录名称，默认为"dist"
+    outDir: "build",
+    // 静态资源存放目录名称，默认为"assets"
+    assetsDir: "static",
+    // // 生成map文件，默认为false（不建议设置）
+    // sourcemap: true,
+  },
   // https://cn.vitejs.dev/config/server-options.html
   server: {
     // 静态资源引用路径，默认为"/"，修改成相对路径"./"，这样在部署上线的时候不需要太关注访问目录的问题。

@@ -6,6 +6,8 @@ import path from "path";
 export default defineConfig({
   // https://cn.vitejs.dev/config/server-options.html
   server: {
+    // 支持IP访问(允许被其他设备访问（例如手机访问dev环境页面）)
+    host: true,
     // 指定dev sever的端口号，默认为5173
     port: 5000,
     // 自动打开浏览器运行以下页面

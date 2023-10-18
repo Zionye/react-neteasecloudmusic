@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom'
 import { Button, theme } from 'antd'
 import { goto } from '@/api'
 import './home.styl'
@@ -7,8 +6,6 @@ import './home.styl'
 const { useToken } = theme
 
 const Home = () => {
-  // 创建路由钩子
-  const navigate = useNavigate()
 
   /**
    *  获取Design Token
@@ -22,9 +19,6 @@ const Home = () => {
   return (
     <div className="P-home">
       <h1 style={{color: designToken.colorText}}>Home Page</h1>
-      <div className="ipt-con">
-          <Button type="primary" onClick={()=>{navigate('/login')}}>返回登录</Button>
-      </div>
       <div className="ipt-con">
           <Button style={{color: designToken.colorText, background: designToken.colorBgContainer}} type="primary" onClick={()=>{goto('/login')}}>组件外跳转登录</Button>
       </div>

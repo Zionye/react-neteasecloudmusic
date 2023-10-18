@@ -1,13 +1,14 @@
 // 头部导航模块
 import { useState } from "react"
-import { Card, Button, Menu } from "antd"
+import { Card, Button, Menu, Modal } from "antd"
 import { MoonOutlined, ThemeOutlined, SunOutlined } from '@/components/extraIcons'
-import { HomeOutlined, UserOutlined } from '@ant-design/icons'
+import { HomeOutlined, UserOutlined, LogoutOutlined } from '@ant-design/icons'
 import { useLocation, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux" // 引入Redux
 import { setDark } from '@/store/slices/theme' // 从主题换肤store分库引入setDark方法
 import { globalConfig } from "@/globalConfig"
 import ThemeModal from '@/components/themeModal'
+import { apiReqs, logout } from "@/api"
 import './header.styl'
 
 
@@ -50,6 +51,19 @@ const Header = (props) => {
   // 是否显示主题色选择对话框
   const [showThemeModal, setShowThemeModal] = useState(false)
 
+  const [modal, contextHolder] = Modal.useModal()
+  // 退出登录
+  const exit = ()=>{
+    // Modal改为modal(为了在暗色主题下，Modal.confirm并未跟随主题。)
+    modal.confirm({
+      title: '是否退出登录？',
+      onOk: ()=>{
+        // logout()
+        apiReqs.signOut()
+      }
+    })
+  }
+
   // 接收来自父组件的数据
   const {title, info} = props
   // 如果info存在，则执行info()
@@ -71,18 +85,25 @@ const Header = (props) => {
                 )
               }
 
-                {
-                  // 当globalConfig配置了主题色，并且数量大于0时，才显示主题色换肤按钮
-                  globalConfig.customColorPrimarys &&
-                    globalConfig.customColorPrimarys.length>0 && 
-                      <Button icon={<ThemeOutlined />} shape="circle" onClick={()=>{setShowThemeModal(true)}}></Button>
-                }
+              {
+                // 当globalConfig配置了主题色，并且数量大于0时，才显示主题色换肤按钮
+                globalConfig.customColorPrimarys &&
+                  globalConfig.customColorPrimarys.length>0 && 
+                    <Button icon={<ThemeOutlined />} shape="circle" onClick={()=>{setShowThemeModal(true)}}></Button>
+              }
+
+              <Button icon={<LogoutOutlined />} shape="circle" onClick={exit}></Button>
             </div>
         </div>
         
         {
           // 显示主题色换肤对话框
           showThemeModal && <ThemeModal onClose={()=>{setShowThemeModal(false)}} />
+        }
+
+        {
+          // 这是最终解决Modal.method跟随换肤的关键，contextHolder在组件DOM中随便找个地方放就行
+          contextHolder
         }
     </Card>
   )

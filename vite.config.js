@@ -6,6 +6,8 @@ import path from "path";
 export default defineConfig({
   // https://cn.vitejs.dev/config/server-options.html
   server: {
+    // 静态资源引用路径，默认为"/"，修改成相对路径"./"，这样在部署上线的时候不需要太关注访问目录的问题。
+    base: "./",
     // 支持IP访问(允许被其他设备访问（例如手机访问dev环境页面）)
     host: true,
     // 指定dev sever的端口号，默认为5173

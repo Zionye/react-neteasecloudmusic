@@ -1,7 +1,7 @@
 /**
  * api库
  */
-import { globalRouters } from "@/route"
+import { globalRouters } from "@/router"
 import { Modal } from "antd"
 import axios from "axios"
 import { globalConfig } from "@/globalConfig"

@@ -3,7 +3,7 @@
     GitHub page: https://github.com/elad2412/the-new-css-reset
 ***/
 
-*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+*:where(:not(html, iframe, canvas, images, svg, video, audio):not(svg *, symbol *)) {
     all: unset;
     display: revert;
 }
@@ -33,7 +33,7 @@ ol, ul, menu {
 }
 
 /* For images to not be able to exceed their container */
-img {
+images {
     max-inline-size: 100%;
     max-block-size: 100%;
 }
@@ -101,4 +101,104 @@ meter {
 :where(dialog:modal) {
     all: revert;
     box-sizing: border-box;
+}
+
+
+/* 全局样式 */
+body, textarea, select, input, button {
+  font-size: 12px;
+  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.w1100 {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.w980 {
+  width: 980px;
+  margin: 0 auto;
+}
+
+.text-indent {
+  text-indent: -9999px;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.sprite_01 {
+  background: url(../images/sprite_01.png) no-repeat 0 9999px;
+}
+
+.sprite_02 {
+  background: url(../images/sprite_02.png) no-repeat 0 9999px;
+}
+
+.sprite_cover {
+  background: url(../images/sprite_cover.png) no-repeat 0 9999px;
+}
+
+.sprite_icon {
+  background: url(../images/sprite_icon.png) no-repeat 0 9999px;
+}
+
+.sprite_icon2 {
+  background: url(../images/sprite_icon2.png) no-repeat 0 9999px;
+}
+
+.sprite_button {
+  background: url(../images/sprite_button.png) no-repeat 0 9999px;
+}
+
+.sprite_button2 {
+  background: url(../images/sprite_button2.png) no-repeat 0 9999px;
+}
+
+.sprite_table {
+  background: url(../images/sprite_table.png) no-repeat 0 9999px;
+}
+
+.my_music {
+  background: url(../images/mymusic.png) no-repeat 0 9999px;
+}
+
+.not-login {
+  background: url(../images/notlogin.jpg) no-repeat 0 9999px;
+}
+
+.image_cover {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  text-indent: -9999px;
+  background: url(../images/sprite_cover.png) no-repeat -145px -57px;
+}
+
+.sprite_player {
+  background: url(../images/playbar_sprite.png) no-repeat 0 9999px;
+}
+
+.lyric-css .ant-message-notice-content {
+  position: fixed;
+  left: 50%;
+  bottom: 50px;
+  transform: translateX(-50%);
+  background-color: rgba(0,0,0,.5);
+  color: #f5f5f5;
+}
+
+.wrap-bg2 {
+  background: url(../images/wrap3.png) repeat-y center 0;;
 }

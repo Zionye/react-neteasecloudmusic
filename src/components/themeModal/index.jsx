@@ -3,7 +3,7 @@ import { CheckCircleFilled } from '@ant-design/icons'
 import { useDispatch, useSelector } from 'react-redux'
 import { setColorPrimary } from '@/store/slices/theme'
 import { globalConfig } from '@/globalConfig'
-import './themeModal.styl'
+import './themeModal.less'
 
 const themeModal = (props) => {
   // 获取redux派发钩子

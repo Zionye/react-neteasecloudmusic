@@ -1,4 +1,4 @@
-import './account.styl'
+import './account.less'
 
 const Account = () => {
 

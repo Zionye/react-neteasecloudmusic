@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { apiReqs } from '@/api'
 import { useNavigate } from 'react-router-dom'
 import { Button, Input } from 'antd'
-import './login.styl'
+import './login.less'
 
 const Login = () => {
   // 创建路由钩子

@@ -14,7 +14,7 @@ import { Provider } from 'react-redux'
 import { ConfigProvider } from 'antd'
 import zhCN from 'antd/locale/zh_CN' // 引入Ant Design中文语言包
 
-import '@/common/styles/frame.styl' // 全局样式
+import '@/assets/styles/frame.less' // 全局样式
 
 // 正式上线前，一定不要忘记关掉Mock.js！！！(仅限开发测试)
 import './mock'

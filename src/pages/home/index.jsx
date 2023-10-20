@@ -1,6 +1,6 @@
 import { Button, theme } from 'antd'
 import { goto } from '@/api'
-import './home.styl'
+import './home.less'
 
 // https://ant-design.antgroup.com/docs/react/customize-theme-cn#theme
 const { useToken } = theme

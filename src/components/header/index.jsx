@@ -9,7 +9,7 @@ import { setDark } from '@/store/slices/theme' // 从主题换肤store分库引�
 import { globalConfig } from "@/globalConfig"
 import ThemeModal from '@/components/themeModal'
 import { apiReqs, logout } from "@/api"
-import './header.styl'
+import './header.less'
 
 
 const Header = (props) => {

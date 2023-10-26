@@ -26,4 +26,7 @@ export const globalConfig = {
   SESSION_LOGIN_THEME: 'userTheme',
   // localStroge用户登录信息标识
   SESSION_LOGIN_INFO: 'userLoginInfo',
+  // 接口请求
+  BASE_URL: 'http://codercba.com:9002',
+  TIME_OUT: 10000
 }

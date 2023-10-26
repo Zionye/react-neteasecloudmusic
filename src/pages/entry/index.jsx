@@ -1,8 +1,11 @@
+import { Suspense, memo } from 'react'
 import { Outlet } from 'react-router-dom'
-import Header from '@/components/header'
+// import Header from '~/components/header'
+import Header from '~/components/appHeader'
+import Footer from '~/components/appFooter'
 import { ConfigProvider, theme } from 'antd'
 import { useSelector } from 'react-redux'
-import { PrivateRoute } from '@/router'
+import { PrivateRoute } from '~/router'
 import './entry.less'
 
 // darkAlgorithm为暗色主题，defaultAlgorithm为亮色（默认）主题
@@ -38,13 +41,17 @@ const Entry = () => {
         <div className='M-entry'>
           <Header />
 
-          <div className="main-container">
-            <Outlet />
-          </div>
+          <Suspense fallback="">
+            <div className="main-container">
+              <Outlet />
+            </div>
+          </Suspense>
+
+          <Footer />
         </div>
       </ConfigProvider>
     </PrivateRoute>
   )
 }
 
-export default Entry
+export default memo(Entry)

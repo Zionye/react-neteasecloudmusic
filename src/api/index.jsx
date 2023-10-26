@@ -1,10 +1,10 @@
 /**
  * api库
  */
-import { globalRouters } from "@/router"
+import { globalRouters } from "~/router"
 import { Modal } from "antd"
 import axios from "axios"
-import { globalConfig } from "@/globalConfig"
+import { globalConfig } from "~/globalConfig"
 
 // 在非React组件中进行页面路由跳转（演示组件外路由跳转使用，无实际意义）
 export const goto = (path) => {
@@ -115,10 +115,16 @@ export function getLocalLoginInfo(){
   return JSON.parse(window.localStorage[SESSION_LOGIN_INFO])
 } 
 
+// 清除localStorage中的登录信息
+export function removeLocalLoginInfo(){
+  window.localStorage.removeItem(SESSION_LOGIN_INFO)
+} 
+
 // 退出登录
 export function logout() {
   // 清除localStorage中的登录信息
-  window.localStorage.removeItem(SESSION_LOGIN_INFO)
+  // window.localStorage.removeItem(SESSION_LOGIN_INFO)
+  removeLocalLoginInfo()
   // 跳转至Login页面
   goto('/login')
 }

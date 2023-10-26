@@ -1,13 +1,13 @@
 // 头部导航模块
 import { useState } from "react"
 import { Card, Button, Menu, Modal } from "antd"
-import { MoonOutlined, ThemeOutlined, SunOutlined } from '@/components/extraIcons'
+import { MoonOutlined, ThemeOutlined, SunOutlined } from '~/components/extraIcons'
 import { HomeOutlined, UserOutlined, LogoutOutlined } from '@ant-design/icons'
 import { useLocation, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux" // 引入Redux
-import { setDark } from '@/store/slices/theme' // 从主题换肤store分库引入setDark方法
+import { setDark } from '~/store/slices/theme' // 从主题换肤store分库引入setDark方法
 import { globalConfig } from "@/globalConfig"
-import ThemeModal from '@/components/themeModal'
+import ThemeModal from '~/components/themeModal'
 import { apiReqs, logout } from "@/api"
 import './header.less'
 

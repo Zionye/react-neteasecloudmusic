@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { apiReqs } from '@/api'
+import { apiReqs } from '~/api'
 import { useNavigate } from 'react-router-dom'
 import { Button, Input } from 'antd'
 import './login.less'
@@ -14,22 +14,23 @@ const Login = () => {
 
   // 登录
   const login = ()=>{
-    apiReqs.signIn({
-      data: {
-        account,
-        password,
-      },
-      done: (res)=>{
-        console.log('done res', res)
-      },
-      success: (res) => {
-        console.log(res)
-        navigate('/home')
-      },
-      fail: (err) => {
-        console.log(err)
-      },
-    })
+    navigate('/')
+    // apiReqs.signIn({
+    //   data: {
+    //     account,
+    //     password,
+    //   },
+    //   done: (res)=>{
+    //     console.log('done res', res)
+    //   },
+    //   success: (res) => {
+    //     console.log(res)
+    //     navigate('/')
+    //   },
+    //   fail: (err) => {
+    //     console.log(err)
+    //   },
+    // })
   }
   return (
     <div className="P_login">

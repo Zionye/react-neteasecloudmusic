@@ -1,8 +1,8 @@
 import { Modal } from 'antd'
 import { CheckCircleFilled } from '@ant-design/icons'
 import { useDispatch, useSelector } from 'react-redux'
-import { setColorPrimary } from '@/store/slices/theme'
-import { globalConfig } from '@/globalConfig'
+import { setColorPrimary } from '~/store/slices/theme'
+import { globalConfig } from '~/globalConfig'
 import './themeModal.less'
 
 const themeModal = (props) => {

@@ -1,5 +1,5 @@
 import { Button, theme } from 'antd'
-import { goto } from '@/api'
+import { goto } from '~/api'
 import './home.less'
 
 // https://ant-design.antgroup.com/docs/react/customize-theme-cn#theme

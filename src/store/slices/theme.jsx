@@ -1,4 +1,4 @@
-import { globalConfig } from "@/globalConfig";
+import { globalConfig } from "~/globalConfig";
 import { createSlice } from "@reduxjs/toolkit";
 
 // 先从localStorage里获取主题配置
